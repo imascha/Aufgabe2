@@ -3,15 +3,15 @@
 #include <vector>
 #include <exception>
 
-std::vector<int> getFibonacciSequence(std::size_t amountOfNumbers) {
-	if (amountOfNumbers == 0)
-		throw std::invalid_argument("amountOfNumbers cannot be 0");
+std::vector<std::size_t> getFibonacciSequence(int amountOfNumbers) {
+	if (amountOfNumbers < 1)
+		throw std::invalid_argument("amountOfNumbers cannot smaller then 1");
 	else if (amountOfNumbers == 1)
 		return {1};
 	else if (amountOfNumbers == 2)
 		return {1, 1};
 
-	std::vector<int> result(amountOfNumbers);
+	std::vector<std::size_t> result(amountOfNumbers);
 	result[0] = 1;
 	result[1] = 1;
 
@@ -29,7 +29,7 @@ std::vector<int> getFibonacciSequence(std::size_t amountOfNumbers) {
 
 
 int main() {
-	std::size_t amountOfNumbers;
+	int amountOfNumbers;
 	std::cout << "How Many Fibonacci Numbers should be shown?" << std::endl;
 	std::cin >> amountOfNumbers;
 
